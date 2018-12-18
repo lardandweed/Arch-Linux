@@ -8,6 +8,8 @@ code fragment 1
 ```
 </p></details>
 
+---
+
 ### Section 2. Trying a different format
 <details>
   <summary>Click to expand</summary>
