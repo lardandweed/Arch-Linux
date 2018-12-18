@@ -1,3 +1,3 @@
-# rEFInd_Arch-linux_Virtualbox-guest
+# Arch Linux
 
-Step by step instructions for installing Arch Linux as Vbox guest using rEFInd bootloader
+A record of my Linux learning journey
