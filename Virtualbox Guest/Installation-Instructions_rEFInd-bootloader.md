@@ -1,6 +1,9 @@
-<details><summary><h3>Section 1. Create the VM in Virtualbox</h3></summary>
+<details>
+  
+  ### <summary>Section 1. Create the VM in Virtualbox</summary>
 <p>
-
+  
 ##### test
+
 </p>
 </details>
