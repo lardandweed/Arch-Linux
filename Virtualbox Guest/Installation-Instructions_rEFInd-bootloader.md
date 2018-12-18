@@ -1,8 +1,28 @@
 <details>
-  <summary><small>Section 1. Create the VM in Virtualbox</small></summary>
+  <summary>
+    <h2>Section 1. Create the VM in Virtualbox</h2>
+    <h3>1.1. Create a new VM</h3>
+      
+   
+   </summary>
 <p>test</p>
 
 </details>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ##### 1. Create the VM in Virtualbox
 #### 1.1. Create a new VM
