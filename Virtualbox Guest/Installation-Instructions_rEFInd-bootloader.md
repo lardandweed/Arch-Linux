@@ -1,7 +1,6 @@
 <details>
-  <summary>
-    <h2>Section 1. Create the VM in Virtualbox</h2>
-    <h3>1.1. Create a new VM</h3>
+	<summary><h2>Section 1. Create the VM in Virtualbox</h2>
+		<h3>1.1. Create a new VM</h3>
       
    
    </summary>
