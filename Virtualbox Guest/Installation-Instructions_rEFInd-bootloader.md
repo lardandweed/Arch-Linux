@@ -1,4 +1,8 @@
-<details><summary>Test</summary></details>
+<details>
+  <summary>test</summary>
+
+
+</details>
 
 ##### 1. Create the VM in Virtualbox
 #### 1.1. Create a new VM
