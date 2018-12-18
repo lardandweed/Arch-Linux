@@ -1,6 +1,3 @@
-<details><summary>Section 1. Create the VM in Virtualbox </summary>
-	
-<p>test</p>
-</details>
+## <details><summary>Section 1. Create the VM in Virtualbox </summary>
 
-<h2>1.1. Create a new VM</h2>
+</details>
