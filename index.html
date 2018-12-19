@@ -4,33 +4,79 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 .collapsible {
-  cursor: pointer;
-  background-color: white;
-  width: 100%;
-  border: none;
-  border-bottom: 3px solid #002080;
-  outline: none;
-  text-align: left;
-  font-family: Arial, Times, sans-serif;
-  font-size: 22px;
-  font-weight: bold;
-  color: #002080;
-  padding: 10px;
+    cursor: pointer;
+    background-color: white;
+    width: 100%;
+    border: none;
+    border-bottom: 3px solid #002080;
+    outline: none;
+    text-align: left;
+    font-family: Arial, Times, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #002080;
+    padding: 10px;
+}
+
+.active{
+    cursor: pointer;
+    background-color: #002080;
+    color: white;
 }
 
 .collapsible:hover {
-  background-color: #b3c4ff;
+    background-color: #b3c4ff;
 }
 
 .content {
-  background-color: #f2f2f2;
-  border-top: none;
-  display: block;
-  overflow: auto;
-  text-indent: 20px;
-  font-family: Arial, Times, sans-serif;
-  padding: 0px 10px;
+    background-color: #f2f2f2;
+    border-top: none;
+    display: block;
+    overflow: auto;
+    font-family: Arial, Times, sans-serif;
+    font-size: 20px;
+    color: #002080;
+    padding: 0px 50px;
 }
+
+li {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: black;
+}
+
+table, th, td {
+    margin: 10px 40px 30px;
+    border: 2px solid #f2f2f2;
+    border-collapse: collapse;
+    font-size: 16px;
+    padding: 5px 15px;
+}
+td:nth-child(odd) {
+    background-color: black;
+    color: white;
+}
+td:nth-child(even) {
+    background-color: #cccccc;
+    color: black;
+}
+
+mark.highlight {
+    background-color: #f2f2f2;
+    color: #990000;
+    font-weight: bold;
+    font-style: italic;
+}
+
+p.notice {
+    margin-left: 40px;
+    background-color: #f2f2f2;
+    color: #009900;
+    font-size: 22px;
+    font-weight: bold;
+}
+
 </style>
 </head>
 <body>
@@ -38,54 +84,143 @@
 <h1><center>How to Install Arch Linux on Virtualbox Guest with rEFInd Bootloader</center></h1>
 <br><p><b>WIP:</b> Made a template for now</p>
 
-<button class="collapsible">1. Step 1</button>
+<button class="collapsible">1. Create a new Virtual Machine in Virtualbox</button>
 <div class="content">
-    <p>Sample text</p>
+    <h3>1.1. Create the VM</h3>
+    <ul>
+        <li>Launch Virtualbox</li>
+        <li>Click <mark class="highlight">'New'</mark></li>
+        <li>Complete <mark class="highlight">'Name and operating system'</mark> form</li>
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td>Arch</td>
+            </tr>
+            <tr>
+                <td>Type:</td>
+                <td>Linux</td>
+            </tr>
+            <tr>
+                <td>Version:</td>
+                <td>Arch Linux (64-bit)</td>
+            </tr>
+        </table>
+
+        <li>Complete <mark class="highlight">'Memory size'</mark> form</li>
+        <table>
+            <tr>
+                <td>Set memory slider:</td>
+                <td>4096 Mb</td>
+            </tr>
+        </table>
+
+        <li>Complete <mark class="highlight">'Hard disk'</mark> form</li>
+        <table>
+            <tr>
+                <td>Check radio button:</td>
+                <td>Create a virtual hard disk now</td>
+            </tr>
+        </table>
+
+        <li>Complete <mark class="highlight">'Hard disk file type'</mark> form</li>
+        <table>
+            <tr>
+                <td>Check radio button:</td>
+                <td>VDI (Virtualbox Disk Image)</td>
+            </tr>
+        </table>
+
+        <li>Complete <mark class="highlight">'Storage on physical hard disk'</mark> form</li>
+        <table>
+            <tr>
+                <td>Check radio button:</td>
+                <td>Dynamically allocated</td>
+            </tr>
+        </table>
+
+        <li>Complete <mark class="highlight">'File location and size'</mark> form</li>
+        <table>
+            <tr>
+                <td>Folder name:</td>
+                <td>Arch</td>
+            </tr>
+            <tr>
+                <td>Set disk size slider:</td>
+                <td>30 Gb</td>
+            </tr>
+        </table>
+    </ul>
+    <p class="notice">A new VM should be now created in Virtualbox</p>
+
+    <h3>1.2. Configure the VM</h3>
+    <ul>
+        <li>Select the new Arch VM</li>
+        <li>Click <mark class="highlight">'Settings'</mark></li>
+        <li>Click on tab <mark class="highlight">'Display'</mark>; set the following settings</li>
+        <table>
+            <tr>
+                <td>Set video memory slider:</td>
+                <td>128 Mb</td>
+            </tr>
+            <tr>
+                <td>Check box:</td>
+                <td>Enable 3D acceleration</td>
+            </tr>
+        </table>
+        <li>Click on tab <mark class="highlight">'System'</mark>; set the following settings</li>
+        <table>
+            <tr>
+                <td>Check box:</td>
+                <td>Enable EFI (Special OSes only)</td>
+            </tr>
+        </table>
+    </ul>
+    <p class="notice">Now the VM is ready to boot into the live media</p>
 </div><br>
 
 <br><button class="collapsible">2. Step 2</button>
 <div class="content">
-  <p>Sample text</p>
+    <p>Sample text</p>
 </div><br>
 
 <br><button class="collapsible">3. Step 3</button>
 <div class="content">
-  <p>Sample text</p>
+    <p>Sample text</p>
 </div><br>
 
 <br><button class="collapsible">4. Step 4</button>
 <div class="content">
-  <p>Sample text</p>
+    <p>Sample text</p>
 </div><br>
 
 <br><button class="collapsible">5. Step 5</button>
 <div class="content">
-  <p>Sample text</p>
+    <p>Sample text</p>
 </div><br>
 
 <br><button class="collapsible">6. Step 6</button>
 <div class="content">
-  <p>Sample text</p>
+    <p>Sample text</p>
 </div><br>
 
 <br><button class="collapsible">7. Step 7</button>
 <div class="content">
-  <p>Sample text</p>
+    <p>Sample text</p>
 </div><br>
 
 <br><button class="collapsible">8. Step 8</button>
 <div class="content">
-  <p>Sample text</p>
+    <p>Sample text</p>
 </div><br>
 
 <br><button class="collapsible">9. Step 9</button>
 <div class="content">
-  <p>Sample text</p>
+    <p>Sample text</p>
 </div><br>
 
 <br><button class="collapsible">10. Step 10</button>
 <div class="content">
-  <p>Sample text</p>
+    <p>Sample text</p>
 </div><br>
 
 <script>
@@ -93,14 +228,15 @@ var coll = document.getElementsByClassName("collapsible");
 var i;
 
 for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    var content = this.nextElementSibling;
-    if (content.style.display === "none") {
-      content.style.display = "block";
-    } else {
-      content.style.display = "none";
-    }
-  });
+    coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "none") {
+            content.style.display = "block";
+        } else {
+            content.style.display = "none";
+        }
+    });
 }
 </script>
 </body>
