@@ -65,18 +65,9 @@
     font-style: italic;
 }
 
-.code1 {
+.code {
     display: inline-block;
     margin: 0px 40px 20px;
-    background-color: black;
-    font-family: 'Source code pro';
-    color: white;
-    padding: 10px 20px;
-}
-
-.code2 {
-    display: inline-block;
-    margin: 0px 40px;
     background-color: black;
     font-family: 'Source code pro';
     color: white;
@@ -233,12 +224,12 @@ td:nth-child(3) {       /*remarks column*/
 <div class="content">
     <ul>
         <li>Verify that Arch booted in UEFI mode</li>
-            <p class="code2"># ls /sys/firmware/efi/efivars</p><br>
+            <p class="code"># ls /sys/firmware/efi/efivars</p><br>
             <mark class="remark">*If the directory is populated, Arch is in UEFI mode</mark>
         <li>Verify that the internet connection is working</li>
-            <p class="code1"># ping archlinux.org -c 4</p>
+            <p class="code"># ping archlinux.org -c 4</p>
         <li>Update the system clock</li>
-            <p class="code2">
+            <p class="code">
                 # timedatectl set-ntp true<br>
                 # timedatectl status
             </p><br>
@@ -253,10 +244,10 @@ td:nth-child(3) {       /*remarks column*/
 <div class="content">
     <ul>
         <li>Identify the device (the virtual hard disk) to install Arch into</li>
-            <p class="code2"># fdisk -l</p><br>
+            <p class="code"># fdisk -l</p><br>
             <mark class="remark">*Should be /dev/sda</mark>
         <li>Use gdisk to create partitions</li>
-            <p class="code1"># gdisk /dev/sda</p>
+            <p class="code"># gdisk /dev/sda</p>
         <li>Create the boot partition using the following settings at each prompt</li>
             <table>
                 <tr>
@@ -342,9 +333,28 @@ td:nth-child(3) {       /*remarks column*/
                     <td>p</td>
                 </tr>
             </table>
-            <mark class="remark">*Output should look something like this:</mark>
-
+            <mark class="remark">
+                *Output should look something like this:<br>
+                <img src="https://raw.githubusercontent.com/lardandweed/Arch-Linux/master/Installation/gdisk_partition_scheme.jpg">
+            </mark>
+        <li>Write partition scheme to disk</li>
+            <table>
+                <tr>
+                    <td>Command (? for help):</td>
+                    <td>p</td>
+                </tr>
+                <tr>
+                    <td>Do you want to proceed? (Y/N):</td>
+                    <td>y</td>
+                </tr>
+            </table>
+            <mark class="remark">*This step will wipe all data on the disk</mark>
     </ul>
+    <p class="notice">
+        Gdisk will write partition table and quit; returns to console prompt
+        <span style="font-family: 'Source Code Pro';color: pink;background-color:black">root</span><!--
+        included this to remove whitespace--><span style="font-family: 'Source Code Pro';color: white;background-color:black">@archiso ~ #</span>
+    </p>
 </div><br>
 
 <br><button class="collapsible">5. Step 5</button>
