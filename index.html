@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Arch Linux Installation Procedure</title>
+<link href='https://fonts.googleapis.com/css?family=Source Code Pro' rel='stylesheet'>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 .collapsible {
@@ -39,6 +41,48 @@
     padding: 0px 50px;
 }
 
+.notice {
+    margin-left: 40px;
+    background-color: #f2f2f2;
+    color: #009900;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.remark {
+    margin: 0px 0px 20px 40px;
+    display: inline-block;
+    background-color: #f2f2f2;
+    font-family: Arial, Times, sans-serif;
+    font-size: 16px;
+    color: #6666ff;
+}
+
+.selection {
+    background-color: #f2f2f2;
+    color: #990000;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.code1 {
+    display: inline-block;
+    margin: 0px 40px 20px;
+    background-color: black;
+    font-family: 'Source code pro';
+    color: white;
+    padding: 10px 20px;
+}
+
+.code2 {
+    display: inline-block;
+    margin: 0px 40px;
+    background-color: black;
+    font-family: 'Source code pro';
+    color: white;
+    padding: 10px 20px;
+}
+
 li {
     margin-left: 10px;
     margin-bottom: 10px;
@@ -47,150 +91,260 @@ li {
 }
 
 table, th, td {
-    margin: 10px 40px 30px;
+    margin: 10px 40px 20px;
     border: 2px solid #f2f2f2;
     border-collapse: collapse;
     font-size: 16px;
     padding: 5px 15px;
 }
-td:nth-child(odd) {
+td:nth-child(1) {
     background-color: black;
     color: white;
 }
-td:nth-child(even) {
+td:nth-child(2) {
     background-color: #cccccc;
     color: black;
 }
-
-mark.highlight {
+td:nth-child(3) {       /*remarks column*/
+    padding-left: 40px;
     background-color: #f2f2f2;
-    color: #990000;
-    font-weight: bold;
-    font-style: italic;
+    font-family: Arial, Times, sans-serif;
+    font-size: 16px;
+    color: #6666ff;
 }
-
-p.notice {
-    margin-left: 40px;
-    background-color: #f2f2f2;
-    color: #009900;
-    font-size: 22px;
-    font-weight: bold;
-}
-
 </style>
 </head>
 <body>
 
 <h1><center>How to Install Arch Linux on Virtualbox Guest with rEFInd Bootloader</center></h1>
-<br><p><b>WIP:</b> Made a template for now</p>
+<br><p><b>WIP:</b></p>
 
 <button class="collapsible">1. Create a new Virtual Machine in Virtualbox</button>
 <div class="content">
     <h3>1.1. Create the VM</h3>
     <ul>
         <li>Launch Virtualbox</li>
-        <li>Click <mark class="highlight">'New'</mark></li>
-        <li>Complete <mark class="highlight">'Name and operating system'</mark> form</li>
-        <table>
-            <tr>
-                <td>Name:</td>
-                <td>Arch</td>
-            </tr>
-            <tr>
-                <td>Type:</td>
-                <td>Linux</td>
-            </tr>
-            <tr>
-                <td>Version:</td>
-                <td>Arch Linux (64-bit)</td>
-            </tr>
-        </table>
-
-        <li>Complete <mark class="highlight">'Memory size'</mark> form</li>
-        <table>
-            <tr>
-                <td>Set memory slider:</td>
-                <td>4096 Mb</td>
-            </tr>
-        </table>
-
-        <li>Complete <mark class="highlight">'Hard disk'</mark> form</li>
-        <table>
-            <tr>
-                <td>Check radio button:</td>
-                <td>Create a virtual hard disk now</td>
-            </tr>
-        </table>
-
-        <li>Complete <mark class="highlight">'Hard disk file type'</mark> form</li>
-        <table>
-            <tr>
-                <td>Check radio button:</td>
-                <td>VDI (Virtualbox Disk Image)</td>
-            </tr>
-        </table>
-
-        <li>Complete <mark class="highlight">'Storage on physical hard disk'</mark> form</li>
-        <table>
-            <tr>
-                <td>Check radio button:</td>
-                <td>Dynamically allocated</td>
-            </tr>
-        </table>
-
-        <li>Complete <mark class="highlight">'File location and size'</mark> form</li>
-        <table>
-            <tr>
-                <td>Folder name:</td>
-                <td>Arch</td>
-            </tr>
-            <tr>
-                <td>Set disk size slider:</td>
-                <td>30 Gb</td>
-            </tr>
-        </table>
+        <li>Click <mark class="selection">'New'</mark></li>
+        <li>Complete <mark class="selection">'Name and operating system'</mark> form</li>
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td>Arch</td>
+                </tr>
+                <tr>
+                    <td>Type:</td>
+                    <td>Linux</td>
+                </tr>
+                <tr>
+                    <td>Version:</td>
+                    <td>Arch Linux (64-bit)</td>
+                </tr>
+            </table>
+        <li>Complete <mark class="selection">'Memory size'</mark> form</li>
+            <table>
+                <tr>
+                    <td>Set memory slider:</td>
+                    <td>4096 Mb</td>
+                </tr>
+            </table>
+        <li>Complete <mark class="selection">'Hard disk'</mark> form</li>
+            <table>
+                <tr>
+                    <td>Check radio button:</td>
+                    <td>Create a virtual hard disk now</td>
+                </tr>
+            </table>
+        <li>Complete <mark class="selection">'Hard disk file type'</mark> form</li>
+            <table>
+                <tr>
+                    <td>Check radio button:</td>
+                    <td>VDI (Virtualbox Disk Image)</td>
+                </tr>
+            </table>
+        <li>Complete <mark class="selection">'Storage on physical hard disk'</mark> form</li>
+            <table>
+                <tr>
+                    <td>Check radio button:</td>
+                    <td>Dynamically allocated</td>
+                </tr>
+            </table>
+        <li>Complete <mark class="selection">'File location and size'</mark> form</li>
+            <table>
+                <tr>
+                    <td>Folder name:</td>
+                    <td>Arch</td>
+                </tr>
+                <tr>
+                    <td>Set disk size slider:</td>
+                    <td>30 Gb</td>
+                </tr>
+            </table>
     </ul>
     <p class="notice">A new VM should be now created in Virtualbox</p>
 
     <h3>1.2. Configure the VM</h3>
     <ul>
         <li>Select the new Arch VM</li>
-        <li>Click <mark class="highlight">'Settings'</mark></li>
-        <li>Click on tab <mark class="highlight">'Display'</mark>; set the following settings</li>
-        <table>
-            <tr>
-                <td>Set video memory slider:</td>
-                <td>128 Mb</td>
-            </tr>
-            <tr>
-                <td>Check box:</td>
-                <td>Enable 3D acceleration</td>
-            </tr>
-        </table>
-        <li>Click on tab <mark class="highlight">'System'</mark>; set the following settings</li>
-        <table>
-            <tr>
-                <td>Check box:</td>
-                <td>Enable EFI (Special OSes only)</td>
-            </tr>
-        </table>
+        <li>Click <mark class="selection">'Settings'</mark></li>
+        <li>Click on tab <mark class="selection">'System'</mark>; set the following settings</li>
+            <table>
+                <tr>
+                    <td>Check box:</td>
+                    <td>Enable EFI (Special OSes only)</td>
+                </tr>
+            </table>
+        <li>Click on tab <mark class="selection">'Display'</mark>; set the following settings</li>
+            <table>
+                <tr>
+                    <td>Set video memory slider:</td>
+                    <td>128 Mb</td>
+                </tr>
+                <tr>
+                    <td>Check box:</td>
+                    <td>Enable 3D acceleration</td>
+                </tr>
+            </table>
+        <li>Click on tab <mark class="selection">'Storage'</mark>; set the following settings</li>
+            <table>
+                <tr>
+                    <td>Controller: IDE:</td>
+                    <td>mount Arch Linux iso</td>
+                </tr>
+            </table>
     </ul>
-    <p class="notice">Now the VM is ready to boot into the live media</p>
+    <p class="notice">The VM is now ready to boot the live media</p>
 </div><br>
 
-<br><button class="collapsible">2. Step 2</button>
+<br><button class="collapsible">2. Boot into Arch Linux Live</button>
 <div class="content">
-    <p>Sample text</p>
+    <ul>
+        <li>Select Arch VM and click <mark class="selection">'Start'</mark></li>
+        <li>Select <mark class="selection">'Arch Linux archiso x86_64 UEFI USB'</mark></li>
+    </ul>
+    <p class="notice">
+        Screen will blank out for a couple of minutes followed by a series of startup events.
+        Eventually, the system will boot into console with the prompt
+        <span style="font-family: 'Source Code Pro';color: pink;background-color:black">root</span><!--
+        included this to remove whitespace--><span style="font-family: 'Source Code Pro';color: white;background-color:black">@archiso ~ #</span>
+    </p>
 </div><br>
 
-<br><button class="collapsible">3. Step 3</button>
+<br><button class="collapsible">3. Do pre-installation checks</button>
 <div class="content">
-    <p>Sample text</p>
+    <ul>
+        <li>Verify that Arch booted in UEFI mode</li>
+            <p class="code2"># ls /sys/firmware/efi/efivars</p><br>
+            <mark class="remark">*If the directory is populated, Arch is in UEFI mode</mark>
+        <li>Verify that the internet connection is working</li>
+            <p class="code1"># ping archlinux.org -c 4</p>
+        <li>Update the system clock</li>
+            <p class="code2">
+                # timedatectl set-ntp true<br>
+                # timedatectl status
+            </p><br>
+            <mark class="remark">
+                *Should get a line in return message:<br>
+                <span style="font-family: 'Source Code Pro';color: white;background-color:black">System clock synchronized: yes</span>
+            </mark>
+    </ul>
 </div><br>
 
-<br><button class="collapsible">4. Step 4</button>
+<br><button class="collapsible">4. Partition the virtual hard disk</button>
 <div class="content">
-    <p>Sample text</p>
+    <ul>
+        <li>Identify the device (the virtual hard disk) to install Arch into</li>
+            <p class="code2"># fdisk -l</p><br>
+            <mark class="remark">*Should be /dev/sda</mark>
+        <li>Use gdisk to create partitions</li>
+            <p class="code1"># gdisk /dev/sda</p>
+        <li>Create the boot partition using the following settings at each prompt</li>
+            <table>
+                <tr>
+                    <td>Command (? for help):</td>
+                    <td>n</td>
+                    <td>*new partition</td>
+                </tr>
+
+                <tr>
+                    <td>Partition number:</td>
+                    <td>hit 'Enter'</td>
+                    <td>*default; start from next available number</td>
+                </tr>
+                <tr>
+                    <td>First sector:</td>
+                    <td>hit 'Enter'</td>
+                    <td>*default; start from end of previous partition</td>
+                </tr>
+                <tr>
+                    <td>Last sector:</td>
+                    <td>+200M</td>
+                    <td>*make partition 200Mb in size</td>
+                </tr>
+                <tr>
+                    <td>Hex code or GUID:</td>
+                    <td>ef00</td>
+                    <td>*EFI system</td>
+                </tr>
+            </table>
+        <li>Create the root partition using the following settings at each prompt</li>
+            <table>
+                <tr>
+                    <td>Command (? for help):</td>
+                    <td>n</td>
+                </tr>
+                <tr>
+                    <td>Partition number:</td>
+                    <td>hit 'Enter'</td>
+                </tr>
+                <tr>
+                    <td>First sector:</td>
+                    <td>hit 'Enter'</td>
+                </tr>
+                <tr>
+                    <td>Last sector:</td>
+                    <td>+20G</td>
+                    <td>*make partition 20Gb in size</td>
+                </tr>
+                <tr>
+                    <td>Hex code or GUID:</td>
+                    <td>hit 'Enter'</td>
+                    <td>*default; 8300=Linux File System</td>
+                </tr>
+            </table>
+        <li>Create the root partition using the following settings at each prompt</li>
+            <table>
+                <tr>
+                    <td>Command (? for help):</td>
+                    <td>n</td>
+                </tr>
+                <tr>
+                    <td>Partition number:</td>
+                    <td>hit 'Enter'</td>
+                </tr>
+                <tr>
+                    <td>First sector:</td>
+                    <td>hit 'Enter'</td>
+                </tr>
+                <tr>
+                    <td>Last sector:</td>
+                    <td>hit 'Enter'</td>
+                    <td>*default; use the rest of the disk</td>
+                </tr>
+                <tr>
+                    <td>Hex code or GUID:</td>
+                    <td>hit 'Enter'</td>
+                </tr>
+            </table>
+        <li>Verify partition scheme</li>
+            <table>
+                <tr>
+                    <td>Command (? for help):</td>
+                    <td>p</td>
+                </tr>
+            </table>
+            <mark class="remark">*Output should look something like this:</mark>
+
+    </ul>
 </div><br>
 
 <br><button class="collapsible">5. Step 5</button>
