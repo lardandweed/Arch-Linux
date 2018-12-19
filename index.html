@@ -302,7 +302,7 @@ td:nth-child(3) {       /*remarks column*/
                     <td>*default; 8300=Linux File System</td>
                 </tr>
             </table>
-        <li>Create the root partition using the following settings at each prompt</li>
+        <li>Create the home partition using the following settings at each prompt</li>
             <table>
                 <tr>
                     <td>Command (? for help):</td>
@@ -355,6 +355,15 @@ td:nth-child(3) {       /*remarks column*/
         <span style="font-family: 'Source Code Pro';color: pink;background-color:black">root</span><!--
         included this to remove whitespace--><span style="font-family: 'Source Code Pro';color: white;background-color:black">@archiso ~ #</span>
     </p>
+    <ul>
+        <li>Verify partitions have been created as specified</li>
+            <p class="code"># fdisk -l</p><br>
+            <mark class="remark">
+                *Output should look something like this:<br>
+                <img src="https://raw.githubusercontent.com/lardandweed/Arch-Linux/master/Installation/fdisk_verify_partitions.jpg">
+            </mark>
+
+    </ul>
 </div><br>
 
 <br><button class="collapsible">5. Step 5</button>
