@@ -482,6 +482,7 @@ td:nth-child(3) {       /*remarks column*/
 
 <br><button class="collapsible">9. Set up the bootloader</button>
 <div class="content">
+    <h3>Setup rEFInd</h3>
     <ul>
         <li>Install rEFInd</li>
             <p class="code"># pacman -S refind-efi</p>
@@ -502,8 +503,16 @@ td:nth-child(3) {       /*remarks column*/
             <p class="code"># blkid</p><br>
             <mark class="remark">
                 *UUID of /dev/sda2 is the string as shown below:<br>
+                <img src="https://raw.githubusercontent.com/lardandweed/Arch-Linux/master/Installation/UUID.jpg">
+            </mark>
+        <li>Edit refind_linux.conf</li>
+            <p class="code"># nano /boot/refind_linux.conf</p>
+            <mark class="remark">
+                *The first two lines of refind_linux.conf will be garbage (kernel options from live system).
+                Edit the file so that the contents look like this:<br>
                 <img src="">
             </mark>
+
     </ul>
 
 </div><br>
