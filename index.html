@@ -412,14 +412,32 @@ td:nth-child(3) {       /*remarks column*/
         <p class="notice">The system is now ready to install Arch Linux proper</p>
 </div><br>
 
-<br><button class="collapsible">7. Step 7</button>
+<br><button class="collapsible">7. Install Arch Linux</button>
 <div class="content">
-    <p>Sample text</p>
+    <ul>
+        <li>Install base and base-devel packages</li>
+        <p class="code"># pacstrap /mnt base base-devel</p><br>
+        <mark class="remark">* Grab some coffee while you wait</mark>
+    </ul>
 </div><br>
 
-<br><button class="collapsible">8. Step 8</button>
+<br><button class="collapsible">8. Configure the system</button>
 <div class="content">
-    <p>Sample text</p>
+    <h3>8.1. Generate the fstab file</h3>
+        <ul>
+            <li>Generate fstab</li>
+                <p class="code"># genfstab -U /mnt >> /mnt/etc/fstab</p>
+            <li>Verify the contents of fstab</li>
+                <p class="code"># cat /mnt/etc/fstab | less</p><br>
+                
+        </ul>
+
+
+    <h3>8.2. Change root to /mnt</h3>
+    <h3>8.3. Configure system time</h3>
+    <h3>8.4. Configure the locale</h3>
+    <h3>8.5. Configure the network</h3>
+    <h3>8.6. Set root password</h3>
 </div><br>
 
 <br><button class="collapsible">9. Step 9</button>
