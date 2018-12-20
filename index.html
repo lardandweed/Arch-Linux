@@ -74,6 +74,12 @@
     padding: 10px 20px;
 }
 
+.inline_code {
+    background-color: black;
+    font-family: 'Source code pro';
+    color: white;
+}
+
 li {
     margin-left: 10px;
     margin-bottom: 10px;
@@ -215,8 +221,7 @@ td:nth-child(3) {       /*remarks column*/
     <p class="notice">
         Screen will blank out for a couple of minutes followed by a series of startup events.
         Eventually, the system will boot into console with the prompt
-        <span style="font-family: 'Source Code Pro';color: pink;background-color:black">root</span><!--
-        included this to remove whitespace--><span style="font-family: 'Source Code Pro';color: white;background-color:black">@archiso ~ #</span>
+        <span class="inline_code"><span style="color:pink">root</span>@archiso ~ #</span>
     </p>
 </div><br>
 
@@ -429,20 +434,78 @@ td:nth-child(3) {       /*remarks column*/
                 <p class="code"># genfstab -U /mnt >> /mnt/etc/fstab</p>
             <li>Verify the contents of fstab</li>
                 <p class="code"># cat /mnt/etc/fstab | less</p><br>
-                
+                <mark class="remark">
+                    *Output should look something like this:<br>
+                    <img src="https://raw.githubusercontent.com/lardandweed/Arch-Linux/master/Installation/fstab.jpg"><br>
+                </mark>
         </ul>
-
-
     <h3>8.2. Change root to /mnt</h3>
+        <p class="code"># arch-chroot /mnt</p>
+        <p class="notice">
+            Console prompt will change to
+            <span class="inline_code">[root@archiso /]</span>
+        </p>
     <h3>8.3. Configure system time</h3>
+        <ul>
+            <li>Set time zone</li>
+                <p class="code"># ln -sf /usr/share/zoneinfo/Singapore /etc/localtime</p>
+            <li>Set the hardware clock</li>
+                <p class="code"># hwclock --systohc</p>
+        </ul>
     <h3>8.4. Configure the locale</h3>
+        <ul>
+            <li>Identify (un-comment) needed locales</li>
+                <p class="code"># nano /etc/locale.gen</p><br>
+                <mark class="remark">
+                    *Delete <span class="selection">'#'</span> from
+                    <span class="selection">'#en_SG.UTF-8 UTF-8'</span> and
+                    <span class="selection">'#en_SG ISO-8859-1'</span><br>
+                </mark>
+            <li>Generate locales</li>
+                <p class="code"># locale-gen</p><br>
+                <mark class="remark">
+                    *Note the dash;
+                    <span class="selection">'locale-gen'</span> and NOT
+                    <span class="selection">'locale.gen</span><br>
+                </mark>
+            <li>Set LANG variable</li>
+                <p class="code"># echo LANG=en_SG.UTF-8 >> /etc/locale.conf</p>
+        </ul>
     <h3>8.5. Configure the network</h3>
+        <ul>
+            <li>Enable network service on system startup</li>
+                <p class="code"># systemctl enable dhcpcd.service</p>
+        </ul>
     <h3>8.6. Set root password</h3>
+        <p class="code"># passwd</p>
 </div><br>
 
-<br><button class="collapsible">9. Step 9</button>
+<br><button class="collapsible">9. Set up the bootloader</button>
 <div class="content">
-    <p>Sample text</p>
+    <ul>
+        <li>Install rEFInd</li>
+            <p class="code"># pacman -S refind-efi</p>
+        <li>Install the rEFInd boot manager</li>
+            <p class="code"># refind-install --usedefault /dev/sda1</p><br>
+            <mark class="remark">
+                *Virtualbox requires the use of <span class="selection">--usedefault</span> option<br>
+                */dev/sda1 is the boot partition created earlier
+            </mark>
+        <li>Configure rEFInd to pass kernel parameters</li>
+            <p class="code"># mkrlconf</p>
+        <p class="notice">
+            According to the rEFInd page on ArchWiki, when <span class="inline_code">refind-install</span> is run in chroot (step 8.2.),
+            <span class="selection">refind_linux.conf</span> will be populated with kernel options from the live system.
+            Hence, <span class="selection">refind_linux.conf</span> needs to be edited.
+        </p>
+        <li>Find UUID of root partition (/dev/sda2)</li>
+            <p class="code"># blkid</p><br>
+            <mark class="remark">
+                *UUID of /dev/sda2 is the string as shown below:<br>
+                <img src="">
+            </mark>
+    </ul>
+
 </div><br>
 
 <br><button class="collapsible">10. Step 10</button>
