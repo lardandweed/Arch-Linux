@@ -482,7 +482,7 @@ td:nth-child(3) {       /*remarks column*/
 
 <br><button class="collapsible">9. Set up the bootloader</button>
 <div class="content">
-    <h3>Setup rEFInd</h3>
+    <h3>9.1. Setup rEFInd</h3>
     <ul>
         <li>Install rEFInd</li>
             <p class="code"># pacman -S refind-efi</p>
@@ -506,14 +506,14 @@ td:nth-child(3) {       /*remarks column*/
                 <img src="https://raw.githubusercontent.com/lardandweed/Arch-Linux/master/Installation/UUID.jpg">
             </mark>
         <li>Edit refind_linux.conf</li>
-            <p class="code"># nano /boot/refind_linux.conf</p>
+            <p class="code"># nano /boot/refind_linux.conf</p><br>
             <mark class="remark">
                 *The first two lines of refind_linux.conf will be garbage (kernel options from live system).
-                Edit the file so that the contents look like this:<br>
-                <img src="">
+                Edit the file using the UUID indentified earlier so that the contents look like this:<br>
+                <img src="https://raw.githubusercontent.com/lardandweed/Arch-Linux/master/Installation/refind_linux.conf.jpg">
             </mark>
-
     </ul>
+    <h3>9.2. Enable microcode updates</h3>
 
 </div><br>
 
