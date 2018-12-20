@@ -367,7 +367,7 @@ td:nth-child(3) {       /*remarks column*/
 
 <br><button class="collapsible">5. Format and mount the partitions</button>
 <div class="content">
-    <h3>Format the partitions</h3>
+    <h3>5.1. Format the partitions</h3>
     <ul>
         <li>Format the boot partition as FAT32 file system</li>
             <p class="code"># mkfs.vfat -F 32 /dev/sda1</p>
@@ -377,7 +377,7 @@ td:nth-child(3) {       /*remarks column*/
                 # mkfs.ext4 /dev/sda3
             </p>
     </ul>
-    <h3>Mount the partitions</h3>
+    <h3>5.2. Mount the partitions</h3>
     <ul>
         <li>Mount the root partition to /mnt</li>
             <p class="code"># mount /dev/sda2 /mnt</p>
@@ -390,8 +390,10 @@ td:nth-child(3) {       /*remarks column*/
             </p>
         <li>Verify partitions have been properly mounted</li>
             <p class="code"># findmnt</p><br>
-            <mark class="remark">Output should look something like this:</mark><br>
-            <mark class="selection">Insert image here</mark>
+            <mark class="remark">
+                *Output should have the following at the bottom of the list:<br>
+                <img src="https://raw.githubusercontent.com/lardandweed/Arch-Linux/master/Installation/mounted_partitions.jpg">
+            </mark>
     </ul>
 </div><br>
 
@@ -399,10 +401,15 @@ td:nth-child(3) {       /*remarks column*/
 <div class="content">
     <ul>
         <li>Install reflector</li>
-            <p class="code">#pacman -Sy reflector</p><br>
+            <p class="code"># pacman -Sy reflector</p><br>
             <mark class="remark">*Enter 'y' to confirm when prompted</mark>
-        <li></li>
-    </ul>
+        <li>Backup the current mirror list</li>
+            <p class="code"># cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak</p>
+        <li>Sort mirror list using reflector</li>
+            <p class="code"># reflector -l 100 --sort rate --save /etc/pacman.d/mirrorlist</p><br>
+            <mark class="remark">*This selects the 100 most recently synchronised mirrors and sorts them by download speed</mark>
+        </ul>
+        <p class="notice">The system is now ready to install Arch Linux proper</p>
 </div><br>
 
 <br><button class="collapsible">7. Step 7</button>
