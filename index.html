@@ -14,7 +14,7 @@
     outline: none;
     text-align: left;
     font-family: Arial, Times, sans-serif;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: bold;
     color: #002080;
     padding: 10px;
@@ -36,7 +36,7 @@
     display: block;
     overflow: auto;
     font-family: Arial, Times, sans-serif;
-    font-size: 20px;
+    font-size: 16px;
     color: #002080;
     padding: 0px 50px;
 }
@@ -70,8 +70,9 @@
     margin: 0px 40px 20px;
     background-color: black;
     font-family: 'Source code pro';
+    font-size: 16px;
     color: white;
-    padding: 10px 20px;
+    padding: 5px 10px;
 }
 
 .inline_code {
@@ -96,6 +97,7 @@ table, th, td {
 }
 td:nth-child(1) {
     background-color: black;
+    font-weight: bold;
     color: white;
 }
 td:nth-child(2) {
@@ -106,7 +108,6 @@ td:nth-child(3) {       /*remarks column*/
     padding-left: 40px;
     background-color: #f2f2f2;
     font-family: Arial, Times, sans-serif;
-    font-size: 16px;
     color: #6666ff;
 }
 </style>
@@ -114,7 +115,6 @@ td:nth-child(3) {       /*remarks column*/
 <body>
 
 <h1><center>How to Install Arch Linux on Virtualbox Guest with rEFInd Bootloader</center></h1>
-<br><p><b>WIP:</b></p>
 
 <button class="collapsible">1. Create a new Virtual Machine in Virtualbox</button>
 <div class="content">
@@ -340,13 +340,13 @@ td:nth-child(3) {       /*remarks column*/
             </table>
             <mark class="remark">
                 *Output should look something like this:<br>
-                <img src="https://raw.githubusercontent.com/lardandweed/Arch-Linux/master/Installation/gdisk_partition_scheme.jpg">
+                <img src="https://raw.githubusercontent.com/lardandweed/Arch-Linux/master/Installation/gdisk_partition_scheme.jpg" width="125%" height="125%">
             </mark>
         <li>Write partition scheme to disk</li>
             <table>
                 <tr>
                     <td>Command (? for help):</td>
-                    <td>p</td>
+                    <td>w</td>
                 </tr>
                 <tr>
                     <td>Do you want to proceed? (Y/N):</td>
@@ -354,18 +354,16 @@ td:nth-child(3) {       /*remarks column*/
                 </tr>
             </table>
             <mark class="remark">*This step will wipe all data on the disk</mark>
-    </ul>
-    <p class="notice">
-        Gdisk will write partition table and quit; returns to console prompt
-        <span style="font-family: 'Source Code Pro';color: pink;background-color:black">root</span><!--
-        included this to remove whitespace--><span style="font-family: 'Source Code Pro';color: white;background-color:black">@archiso ~ #</span>
-    </p>
-    <ul>
+            <p class="notice">
+                Gdisk will write partition table and quit; returns to console prompt
+                <span style="font-family: 'Source Code Pro';color: pink;background-color:black">root</span><!--
+                included this to remove whitespace--><span style="font-family: 'Source Code Pro';color: white;background-color:black">@archiso ~ #</span>
+            </p>
         <li>Verify partitions have been created as specified</li>
             <p class="code"># fdisk -l</p><br>
             <mark class="remark">
                 *Output should look something like this:<br>
-                <img src="https://raw.githubusercontent.com/lardandweed/Arch-Linux/master/Installation/fdisk_verify_partitions.jpg">
+                <img src="https://raw.githubusercontent.com/lardandweed/Arch-Linux/master/Installation/fdisk_verify_partitions.jpg" width="125%" height="125%">
             </mark>
     </ul>
 </div><br>
@@ -397,7 +395,7 @@ td:nth-child(3) {       /*remarks column*/
             <p class="code"># findmnt</p><br>
             <mark class="remark">
                 *Output should have the following at the bottom of the list:<br>
-                <img src="https://raw.githubusercontent.com/lardandweed/Arch-Linux/master/Installation/mounted_partitions.jpg">
+                <img src="https://raw.githubusercontent.com/lardandweed/Arch-Linux/master/Installation/mounted_partitions.jpg" width="125%" height="125%">
             </mark>
     </ul>
 </div><br>
@@ -436,7 +434,7 @@ td:nth-child(3) {       /*remarks column*/
                 <p class="code"># cat /mnt/etc/fstab | less</p><br>
                 <mark class="remark">
                     *Output should look something like this:<br>
-                    <img src="https://raw.githubusercontent.com/lardandweed/Arch-Linux/master/Installation/fstab.jpg"><br>
+                    <img src="https://raw.githubusercontent.com/lardandweed/Arch-Linux/master/Installation/fstab.jpg" width="125%" height="125%">
                 </mark>
         </ul>
     <h3>8.2. Change root to /mnt</h3>
@@ -465,8 +463,8 @@ td:nth-child(3) {       /*remarks column*/
                 <p class="code"># locale-gen</p><br>
                 <mark class="remark">
                     *Note the dash;
-                    <span class="selection">'locale-gen'</span> and NOT
-                    <span class="selection">'locale.gen</span><br>
+                    <span class="selection">'locale-gen'</span> and <strong>NOT</strong>
+                    <span class="selection">'locale.gen'</span><br>
                 </mark>
             <li>Set LANG variable</li>
                 <p class="code"># echo LANG=en_SG.UTF-8 >> /etc/locale.conf</p>
@@ -503,14 +501,14 @@ td:nth-child(3) {       /*remarks column*/
             <p class="code"># blkid</p><br>
             <mark class="remark">
                 *UUID of /dev/sda2 is the string as shown below:<br>
-                <img src="https://raw.githubusercontent.com/lardandweed/Arch-Linux/master/Installation/UUID.jpg">
+                <img src="https://raw.githubusercontent.com/lardandweed/Arch-Linux/master/Installation/UUID.jpg" width="125%" height="125%">
             </mark>
         <li>Edit refind_linux.conf</li>
             <p class="code"># nano /boot/refind_linux.conf</p><br>
             <mark class="remark">
                 *The first two lines of refind_linux.conf will be garbage (kernel options from live system).
                 Edit the file using the UUID indentified earlier so that the contents look like this:<br>
-                <img src="https://raw.githubusercontent.com/lardandweed/Arch-Linux/master/Installation/refind_linux.conf.jpg">
+                <img src="https://raw.githubusercontent.com/lardandweed/Arch-Linux/master/Installation/refind_linux.conf.jpg" width="90%" height="90%">
             </mark>
     </ul>
     <h3>9.2. Enable microcode updates</h3>
@@ -518,13 +516,34 @@ td:nth-child(3) {       /*remarks column*/
         <li>Install the intel ucode package</li>
             <p class="code"># pacman -S intel-ucode</p>
         <li>Update refind_linux.conf</li>
+            <p class="code"># nano /boot/refind_linux.conf</p><br>
+            <mark class="remark">
+                *Append <span class="selection">initrd=/intel-ucode.img</span>
+                and <span class="selection">initrd=/initramfs-linux.img</span>
+                so that the contents look like this:<br>
+                <img src="https://raw.githubusercontent.com/lardandweed/Arch-Linux/master/Installation/intel_microcode.jpg" width="125%" height="125%">
+            </mark>
     </ul>
-
 </div><br>
 
-<br><button class="collapsible">10. Step 10</button>
+<br><button class="collapsible">10. Reboot</button>
 <div class="content">
-    <p>Sample text</p>
+    <ul>
+        <li>Exit chroot</li>
+            <p class="code"># exit</p>
+        <li>Unmount all partitions</li>
+            <p class="code"># umount -R /mnt</p>
+        <li>Shutdown</li>
+            <p class="code"># poweroff</p>
+        <li>Unmount Arch Linux iso from virtual optical drive</li>
+            <p class="remark">
+                *In Virtualbox, click <span class="selection">'Settings'</span> >
+                <span class="selection">'Storage'</span> >
+                <span class="selection">'Controller: IDE'</span> >
+                <span class="selection">'Remove Disk from Virtual Drive'</span>
+            </p>
+    </ul>
+    <p class="notice">Installation complete!</p>
 </div><br>
 
 <script>
