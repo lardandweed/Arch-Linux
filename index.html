@@ -362,18 +362,47 @@ td:nth-child(3) {       /*remarks column*/
                 *Output should look something like this:<br>
                 <img src="https://raw.githubusercontent.com/lardandweed/Arch-Linux/master/Installation/fdisk_verify_partitions.jpg">
             </mark>
-
     </ul>
 </div><br>
 
-<br><button class="collapsible">5. Step 5</button>
+<br><button class="collapsible">5. Format and mount the partitions</button>
 <div class="content">
-    <p>Sample text</p>
+    <h3>Format the partitions</h3>
+    <ul>
+        <li>Format the boot partition as FAT32 file system</li>
+            <p class="code"># mkfs.vfat -F 32 /dev/sda1</p>
+        <li>Format root and home partitions as ext4 file system</li>
+            <p class="code">
+                # mkfs.ext4 /dev/sda2<br>
+                # mkfs.ext4 /dev/sda3
+            </p>
+    </ul>
+    <h3>Mount the partitions</h3>
+    <ul>
+        <li>Mount the root partition to /mnt</li>
+            <p class="code"># mount /dev/sda2 /mnt</p>
+        <li>Create mount points for the boot and home partitions</li>
+            <p class="code"># mkdir /mnt/boot /mnt/home</p>
+        <li>Mount the partitions to their respective mount points</li>
+            <p class="code">
+                # mount /dev/sda1 /mnt/boot<br>
+                # mount /dev/sda3 /mnt/home
+            </p>
+        <li>Verify partitions have been properly mounted</li>
+            <p class="code"># findmnt</p><br>
+            <mark class="remark">Output should look something like this:</mark><br>
+            <mark class="selection">Insert image here</mark>
+    </ul>
 </div><br>
 
-<br><button class="collapsible">6. Step 6</button>
+<br><button class="collapsible">6. Update mirror list</button>
 <div class="content">
-    <p>Sample text</p>
+    <ul>
+        <li>Install reflector</li>
+            <p class="code">#pacman -Sy reflector</p><br>
+            <mark class="remark">*Enter 'y' to confirm when prompted</mark>
+        <li></li>
+    </ul>
 </div><br>
 
 <br><button class="collapsible">7. Step 7</button>
